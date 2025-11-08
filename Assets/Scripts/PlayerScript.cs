@@ -4,7 +4,8 @@ public class PlayerScript : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
-    
+
+    private GameTimer gameTimer;
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     
@@ -24,6 +25,9 @@ public class PlayerScript : MonoBehaviour
         
         // Set gravity scale to 0 for top-down 2D movement (or keep it if you want gravity)
         rb.gravityScale = 0f;
+
+        gameTimer = FindObjectOfType<GameTimer>();
+
     }
     
     void Update()
@@ -49,5 +53,12 @@ public class PlayerScript : MonoBehaviour
             // Stop movement when no input
             rb.linearVelocity = Vector2.zero;
         }
+
+        if (gameTimer != null)
+        {
+            bool isMoving = moveDirection.magnitude >= 0.1f;
+            gameTimer.SetPlayerMoving(isMoving);
+        }
+
     }
 }
