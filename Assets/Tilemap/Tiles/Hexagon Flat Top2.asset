@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hexagon Flat Top2
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
   m_Sprite: {fileID: -712631045867808456, guid: 3454076a0c47f7f44914e6728f4571b5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96765494, g: 0.9306356, b: 0.7968155, a: 1}
   m_Transform:
     e00: 1
     e01: 0
