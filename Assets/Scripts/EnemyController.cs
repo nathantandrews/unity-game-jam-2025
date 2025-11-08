@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 
 [System.Serializable]
 public struct EnemyMove
@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     
     private int currentMoveIndex = 0;
     private float moveTimer = 0f;
+    private Vector3Int lastCellPos;
 
     [SerializeField] private Rigidbody2D rb;
     private Tilemap groundTilemap;
@@ -23,8 +24,8 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        gameTimer = FindObjectOfType<GameTimer>();
-        groundTilemap = FindObjectOfType<Tilemap>();
+        gameTimer = FindFirstObjectByType<GameTimer>();
+        groundTilemap = FindFirstObjectByType<Tilemap>();
         rb.freezeRotation = true;
     }
     void UpdateTilePosition()
