@@ -16,6 +16,8 @@ public class TileOccupancyManager : MonoBehaviour
     public TileBase allyTile;
     public TileBase goalTile;
 
+    private GameManager gm;
+
     private Dictionary<Vector3Int, List<GameObject>> occupancy = new();
     private Dictionary<Vector3Int, TileBase> originalTiles = new();
 
@@ -112,12 +114,18 @@ public class TileOccupancyManager : MonoBehaviour
             Debug.Log($"Player and Enemy on same tile: {cellPos}");
             var behavior = player.GetComponent<PlayerBehavior>();
             behavior?.KillPlayer();
+            gm?.EndLevel(false);
         }
         if (hasPlayer && hasGoal && player != null)
         {
             Debug.Log($"Player and Goal on same tile: {cellPos}");
             var gm = FindFirstObjectByType<GameManager>();
-            gm?.EndLevel();
+            gm?.EndLevel(true);
+        }
+        if (hasPlayer && hasAlly && player != null)
+        {
+            Debug.Log($"Player and Ally on same tile: {cellPos}");
+            Debug.Log("Ally Benefits Not Implemented");
         }
 
     }
