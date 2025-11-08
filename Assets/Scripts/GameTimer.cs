@@ -9,8 +9,8 @@ public class GameTimer : MonoBehaviour
 
     [Header("Speed Settings")]
     public float currentSpeed = 1f;
-    public float normalSpeed = 1f;
-    public float movingSpeed = 2f;
+    public float normalSpeed = 0.5f;
+    public float movingSpeed = 1f;
 
     [Header("UI Reference")]
     public TextMeshProUGUI timerText; // Drag your TimerText object here in Inspector
