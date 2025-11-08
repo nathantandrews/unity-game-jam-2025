@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level" + levelId);
     }
+    
 
     // ------------------- Game Logic -------------------
     public void EndLevel(bool passedLevel)
@@ -128,5 +129,30 @@ public class GameManager : MonoBehaviour
     {
         HideAllPanels();
         if (deathPanel != null) deathPanel.SetActive(true);
+    }
+
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
+    }
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1f;
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextIndex);
+        }
+        else
+        {
+            // Optional: Go back to main menu if it's the last level
+            GoToMainMenu();
+        }
     }
 }
