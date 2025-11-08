@@ -1,11 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MenuLogic : MonoBehaviour
 {
-    // This function loads the Level Select scene
-    public void GoToLevelSelect()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        SceneManager.LoadScene("LevelSelect"); // The name must match your scene name!
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
