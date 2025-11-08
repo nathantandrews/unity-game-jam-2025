@@ -25,9 +25,9 @@ public class PlayerBehavior : MonoBehaviour
         rb.freezeRotation = true;
         rb.gravityScale = 0f;
 
-        gameTimer = FindObjectOfType<GameTimer>();
+        gameTimer = FindFirstObjectByType<GameTimer>();
 
-        groundTilemap = FindObjectOfType<Tilemap>();
+        groundTilemap = FindFirstObjectByType<Tilemap>();
 
         // Register initial position in TileOccupancyManager
         if (TileOccupancyManager.Instance != null && groundTilemap != null)

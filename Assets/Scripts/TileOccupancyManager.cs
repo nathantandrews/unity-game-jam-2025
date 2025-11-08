@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -73,8 +72,8 @@ public class TileOccupancyManager : MonoBehaviour
             // Color priority: Red if Enemy, Blue if Player
             if (hasEnemy) color = Color.red;
             else if (hasPlayer) color = Color.cyan;
-            else if (hasAlly) color = Color.Green;
-            else if (hasAlly) color = Color.Gold;
+            else if (hasAlly) color = Color.green;
+            else if (hasGoal) color = Color.gold;
         }
 
         tilemap.SetColor(cellPos, color);

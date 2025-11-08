@@ -37,7 +37,7 @@ public class GameTimer : MonoBehaviour
         currentSpeed = isPlayerMoving ? movingSpeed : normalSpeed;
 
         // Decrease time
-        currentTime -= Time.deltaTime * speed;
+        currentTime -= Time.deltaTime * currentSpeed;
         currentTime = Mathf.Max(currentTime, 0f);
 
         // Display only whole seconds (no decimals)
