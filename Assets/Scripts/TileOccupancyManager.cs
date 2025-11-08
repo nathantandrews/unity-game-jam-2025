@@ -128,6 +128,15 @@ public class TileOccupancyManager : MonoBehaviour
             Debug.Log($"[TOM] Player collision at {cellPos} -> killing player");
             var pb = player.GetComponent<PlayerBehavior>();
             pb?.KillPlayer();
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.EndLevel(false);
+            }
+            else
+            {
+                Debug.LogWarning("[TOM] GameManager not found, cannot end level");
+            }
         }
 
         if (hasEnemy && hasAlly)
@@ -136,10 +145,20 @@ public class TileOccupancyManager : MonoBehaviour
             var al = ally.GetComponent<NPCController>();
             al?.KillNPC();
         }
+
+
         if (hasPlayer && hasGoal)
         {
             Debug.Log($"[TOM] Player reached Goal -> ending level");
 
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.EndLevel(true);
+            }
+            else
+            {
+                Debug.LogWarning("[TOM] GameManager not found, cannot end level");
+            }
         }
     }
 
