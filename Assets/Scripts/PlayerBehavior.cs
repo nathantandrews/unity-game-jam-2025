@@ -92,7 +92,7 @@ public class PlayerBehavior : MonoBehaviour
         if (!isAlive) return;
         isAlive = false;
 
-        Debug.Log("💀 Player Died!");
+        Debug.Log("Player Died!");
         rb.linearVelocity = Vector2.zero;
 
         // Disable player for now (you could add animation instead)
