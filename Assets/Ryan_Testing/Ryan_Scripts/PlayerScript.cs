@@ -42,12 +42,12 @@ public class PlayerScript : MonoBehaviour
         if (moveDirection.magnitude >= 0.1f)
         {
             // Move the player using velocity for smooth movement
-            rb.velocity = moveDirection * moveSpeed;
+            rb.linearVelocity = moveDirection * moveSpeed;
         }
         else
         {
             // Stop movement when no input
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 }
