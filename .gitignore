@@ -96,8 +96,6 @@ InitTestScene*.unity*
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
 # Auto-generated scenes by play mode tests
-<<<<<<< HEAD
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-=======
-/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
->>>>>>> f3afd165d1261a6d66a5b765b80fb6a284538445
+
+build
