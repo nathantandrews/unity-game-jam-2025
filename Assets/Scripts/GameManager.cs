@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public GameTimer gameTimer = null;
 
+     [Header("Audio Settings")]
+    [Range(0f, 1f)] public float startVolume = 0.3f; // Default quieter start volume (30%)
+
     private bool isGameOver = false;
 
     void Awake()
@@ -25,6 +28,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        AudioListener.volume = startVolume;
     }
 
     void Start()
@@ -108,6 +113,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Options");
+    }
+
+    public void GoToControls()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("ControlsPage");
     }
 
     public void ExitGame()
