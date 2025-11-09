@@ -2,8 +2,11 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Ally
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Grid
+    uniqueID: 3113747521
+    locked: 0
+  - name: Entities
+    uniqueID: 3755031123
+    locked: 0
+  - name: UI/HUD
+    uniqueID: 442935379
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default
