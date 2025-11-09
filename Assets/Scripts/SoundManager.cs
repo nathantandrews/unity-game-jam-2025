@@ -37,6 +37,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        float savedVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        sfxSource.volume = savedVolume;
+    }
+
     // ---- Sound Effect Methods ----
     public void PlayPlayerDeath()
     {
@@ -69,5 +75,13 @@ public class SoundManager : MonoBehaviour
     {
         if (clip != null)
             sfxSource.PlayOneShot(clip);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        if (sfxSource != null)
+        {
+            sfxSource.volume = volume;
+        }
     }
 }

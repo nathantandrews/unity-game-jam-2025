@@ -35,6 +35,12 @@ public class MusicManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void Start()
+    {
+        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        musicSource.volume = savedVolume;
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name.ToLower();
@@ -78,4 +84,13 @@ public class MusicManager : MonoBehaviour
         musicSource.pitch = 1f;
         musicSource.Play();
     }
+
+    public void SetMusicVolume(float volume)
+    {
+        if (musicSource != null)
+        {
+            musicSource.volume = volume;
+        }
+    }
+
 }
