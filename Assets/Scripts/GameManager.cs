@@ -11,13 +11,12 @@ public class GameManager : MonoBehaviour
     public GameObject deathPanel = null;
 
     [Header("References")]
-    public GameTimer gameTimer = null; // Assign your GameTimer script here
+    public GameTimer gameTimer = null;
 
     private bool isGameOver = false;
 
     void Awake()
     {
-        // Simple singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -31,28 +30,71 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         HideAllPanels();
-        ResumeGame(); // make sure time scale is normal
+        ResumeGame();
     }
 
     void Update()
     {
-        // Escape key: go back to Main Menu directly
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        // Detect which scene we’re currently in
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        // === MAIN MENU ESC HANDLER ===
+        if (currentScene == "MainMenu")
         {
-            GoToMainMenu();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitGame();
+            }
         }
 
-        // If timer hits zero and the game isn't already over
-        if (gameTimer != null && gameTimer.GetCurrentTime() <= 0 && !isGameOver)
+        // === Universal Key Shortcuts ===
+        if (!isGameOver)
         {
-            EndLevel(false);
+            // ESC → Go back to Level Select
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GoToLevelSelect();
+            }
+
+            // R → Restart current level
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RestartLevel();
+            }
+
+            // Timer check for death
+            if (gameTimer != null && gameTimer.GetCurrentTime() <= 0)
+            {
+                EndLevel(false);
+            }
+        }
+        else
+        {
+            // SPACE → Go to next level (only if victorious)
+            if (Input.GetKeyDown(KeyCode.Space) && victoryPanel != null && victoryPanel.activeSelf)
+            {
+                GoToNextLevel();
+            }
+
+            // ESC → Back to Level Select even after win/lose
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GoToLevelSelect();
+            }
+
+            // R → Restart even after death
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RestartLevel();
+            }
         }
     }
 
     // ------------------- Scene Navigation -------------------
     public void GoToMainMenu()
     {
-        Time.timeScale = 1f; // reset just in case
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -81,7 +123,31 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level" + levelId);
     }
-    
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.name);
+    }
+
+    public void GoToNextLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(nextIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels available!");
+            GoToLevelSelect();
+        }
+    }
 
     // ------------------- Game Logic -------------------
     public void EndLevel(bool passedLevel)
@@ -129,30 +195,5 @@ public class GameManager : MonoBehaviour
     {
         HideAllPanels();
         if (deathPanel != null) deathPanel.SetActive(true);
-    }
-
-
-    public void RestartLevel()
-    {
-        Time.timeScale = 1f;
-        string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
-    }
-
-    public void NextLevel()
-    {
-        Time.timeScale = 1f;
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextIndex = currentIndex + 1;
-
-        if (nextIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextIndex);
-        }
-        else
-        {
-            // Optional: Go back to main menu if it's the last level
-            GoToMainMenu();
-        }
     }
 }
