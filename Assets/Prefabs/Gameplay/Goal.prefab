@@ -184,6 +184,7 @@ MonoBehaviour:
   isAlive: 1
   rb: {fileID: 7222698170984977258}
   spriteRenderer: {fileID: 0}
+  animator: {fileID: 2928675141454925460}
 --- !u!1 &7462771980566678764
 GameObject:
   m_ObjectHideFlags: 0

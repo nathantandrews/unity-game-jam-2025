@@ -9,8 +9,10 @@ public class MusicManager : MonoBehaviour
     public AudioSource musicSource;
 
     [Header("Music Clips")]
-    public AudioClip mainTheme;
-    public AudioClip levelTheme;
+    public AudioClip mainTheme;      // Menu music
+    public AudioClip levelTheme;     // Normal level music
+    public AudioClip level7Theme;    // Special Level 7 music
+    public AudioClip victoryTheme;   // Victory screen music
 
     private bool isLevelScene = false;
     private GameTimer gameTimer;
@@ -37,7 +39,8 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        // Default quieter startup volume (change 0.3f to what feels right)
+        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
         musicSource.volume = savedVolume;
     }
 
@@ -46,10 +49,19 @@ public class MusicManager : MonoBehaviour
         string sceneName = scene.name.ToLower();
         isLevelScene = sceneName.StartsWith("level");
 
-        if (isLevelScene)
+        if (sceneName == "victorymenu")
+        {
+            PlayMusic(victoryTheme);
+            gameTimer = null;
+        }
+        else if (sceneName.StartsWith("level7"))
+        {
+            PlayMusic(level7Theme);
+            gameTimer = FindObjectOfType<GameTimer>();
+        }
+        else if (isLevelScene)
         {
             PlayMusic(levelTheme);
-            // Try to find GameTimer in the scene
             gameTimer = FindObjectOfType<GameTimer>();
         }
         else
@@ -61,15 +73,15 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
+        // Adjust pitch dynamically during gameplay
         if (isLevelScene && gameTimer != null)
         {
-            // Match pitch to current speed (smoothly)
             float targetPitch = Mathf.Clamp(gameTimer.currentSpeed, 0.5f, 1.0f);
             musicSource.pitch = Mathf.Lerp(musicSource.pitch, targetPitch, Time.unscaledDeltaTime * 5f);
         }
         else
         {
-            // Keep normal speed for menus
+            // Restore to normal pitch for menus or non-level scenes
             musicSource.pitch = Mathf.Lerp(musicSource.pitch, 1f, Time.unscaledDeltaTime * 2f);
         }
     }
@@ -90,7 +102,7 @@ public class MusicManager : MonoBehaviour
         if (musicSource != null)
         {
             musicSource.volume = volume;
+            PlayerPrefs.SetFloat("MusicVolume", volume);
         }
     }
-
 }

@@ -1150,6 +1150,8 @@ MonoBehaviour:
   musicSource: {fileID: 896570309}
   mainTheme: {fileID: 8300000, guid: 4d5d51dac87a448cb81b51f4e2de41f3, type: 3}
   levelTheme: {fileID: 8300000, guid: 9f22ff5656a7646aab8df49c07d6b6a6, type: 3}
+  level7Theme: {fileID: 8300000, guid: 4c26e59ccc03c49f9840a2d87d207d1c, type: 3}
+  victoryTheme: {fileID: 8300000, guid: 7e19c996897984c09bb573ad8b552268, type: 3}
 --- !u!4 &896570311
 Transform:
   m_ObjectHideFlags: 0
