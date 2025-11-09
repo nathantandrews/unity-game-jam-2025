@@ -55,18 +55,17 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (!isAlive) return;
 
-        // Move the player
-        if (moveDirection.magnitude >= 0.1f)
-            rb.linearVelocity = moveDirection * moveSpeed;
-        else
-            rb.linearVelocity = Vector2.zero;
+        // Determine if moving
+        bool isMoving = moveDirection.magnitude >= 0.3f;
 
-        // Notify timer if moving
-        if (gameTimer != null)
-        {
-            bool isMoving = moveDirection.magnitude >= 0.1f;
-            gameTimer.SetPlayerMoving(isMoving);
-        }
+        // Move the player
+        rb.linearVelocity = isMoving ? moveDirection * moveSpeed : Vector2.zero;
+
+        // Update GameTimer
+        gameTimer?.SetPlayerMoving(isMoving);
+
+        // Continues to walk when dead or makes it to goal
+        //SoundManager.Instance?.HandleWalkingSound(isMoving);
 
         // Track tile position
         UpdateTilePosition();

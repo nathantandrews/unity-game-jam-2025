@@ -159,6 +159,8 @@ public class GameManager : MonoBehaviour
 
         if (passedLevel)
         {
+
+            SoundManager.Instance?.PlayGoalReached();
             // Get current level number
             string currentScene = SceneManager.GetActiveScene().name;
             int currentLevel = ParseLevelNumber(currentScene);
@@ -173,6 +175,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance?.PlayPlayerDeath();
             ShowDeathPanel();
         }
     }
