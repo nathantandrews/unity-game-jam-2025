@@ -183,7 +183,7 @@ MonoBehaviour:
   loop: 1
   isAlive: 1
   rb: {fileID: 7222698170984977258}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 2371645047257686855}
   animator: {fileID: 2928675141454925460}
 --- !u!1 &7462771980566678764
 GameObject:

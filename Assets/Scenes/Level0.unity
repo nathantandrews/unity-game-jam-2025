@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604165033384104700, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 25.968254
+      value: 19.777779
       objectReference: {fileID: 0}
     - target: {fileID: 2145080256901064410, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570646761856378908, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.484127
+      value: 9.388889
       objectReference: {fileID: 0}
     - target: {fileID: 3425468058914628495, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_Size.x
@@ -1713,7 +1713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960662520637724269, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 25.968254
+      value: 19.777779
       objectReference: {fileID: 0}
     - target: {fileID: 4815833364996861028, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1729,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329020224827077711, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.484127
+      value: -9.388889
       objectReference: {fileID: 0}
     - target: {fileID: 9199779932505147337, guid: c84424b7a63d1f54f906073e4e02e40d, type: 3}
       propertyPath: m_UiScaleMode
@@ -1751,6 +1751,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebf5e9375b29a84a88f3bdb8c0fdbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!95 &1825892619 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2928675141454925460, guid: b67aeb57e6b4aa94d922fefb36027939, type: 3}
+  m_PrefabInstance: {fileID: 2090339525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1825892621 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2371645047257686855, guid: b67aeb57e6b4aa94d922fefb36027939, type: 3}
+  m_PrefabInstance: {fileID: 2090339525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2090339525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1799,6 +1809,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5519676000782744402, guid: b67aeb57e6b4aa94d922fefb36027939, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1825892619}
+    - target: {fileID: 5519676000782744402, guid: b67aeb57e6b4aa94d922fefb36027939, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1825892621}
     - target: {fileID: 6742906544800315987, guid: b67aeb57e6b4aa94d922fefb36027939, type: 3}
       propertyPath: m_Name
       value: Goal
