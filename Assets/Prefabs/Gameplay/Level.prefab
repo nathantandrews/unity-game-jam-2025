@@ -5660,6 +5660,7 @@ MonoBehaviour:
   victoryPanel: {fileID: 3897793920653077959}
   deathPanel: {fileID: 6507760806276839420}
   gameTimer: {fileID: 4626900338170997643}
+  startVolume: 0.3
 --- !u!1 &6173001181446299207
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,13 +6659,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 605113225777739768, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 605113225777739768, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 838640985983539047, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
       propertyPath: m_Size.x
       value: 0.29998
       objectReference: {fileID: 0}
     - target: {fileID: 838640985983539047, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
       propertyPath: m_Size.y
-      value: 0.38628387
+      value: 0.361225
       objectReference: {fileID: 0}
     - target: {fileID: 838640985983539047, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
       propertyPath: m_Offset.x
@@ -6672,8 +6681,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 838640985983539047, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.012529425
       objectReference: {fileID: 0}
+    - target: {fileID: 1260400881272427831, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6966901400559492229}
+    - target: {fileID: 1260400881272427831, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 4981380378961631096}
     - target: {fileID: 3837431985939580073, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6690,5 +6707,15 @@ PrefabInstance:
 --- !u!4 &789656809583029530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 145077152983054127, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
+  m_PrefabInstance: {fileID: 645710510754257461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4981380378961631096 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5609072009371028813, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
+  m_PrefabInstance: {fileID: 645710510754257461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6966901400559492229 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7519148394988390064, guid: f60ad106c096fe145bfcf861fe61767c, type: 3}
   m_PrefabInstance: {fileID: 645710510754257461}
   m_PrefabAsset: {fileID: 0}
