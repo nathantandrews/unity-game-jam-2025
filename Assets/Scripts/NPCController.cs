@@ -1,3 +1,4 @@
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -22,6 +23,8 @@ public class NPCController : MonoBehaviour
     private Tilemap groundTilemap;
     private GameTimer gameTimer;
     public SpriteRenderer spriteRenderer;
+
+    [SerializeField] private Animator animator;
 
     void Start()
     {
@@ -87,6 +90,7 @@ public class NPCController : MonoBehaviour
 
     void FixedUpdate()
     {
+        animator.speed = gameTimer.currentSpeed;
         if (moves.Length == 0) return;
         Move currentMove = moves[currentMoveIndex];
         moveTimer += Time.deltaTime;
